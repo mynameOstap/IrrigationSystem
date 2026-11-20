@@ -1,0 +1,38 @@
+# clangd config for ESP-IDF (Xtensa GCC) builds
+CompileFlags:
+  # GCC/Xtensa-only flags that clang doesn't understand
+  Remove:
+    - -mlongcalls
+    - -mdisable-hardware-atomics
+    - -mno-disable-hardware-atomics
+    - -fstrict-volatile-bitfields
+    - -fno-tree-switch-conversion
+    - -fno-shrink-wrap
+    - -fno-jump-tables
+    - -Wno-old-style-declaration
+    - -fanalyzer
+    - -specs=*
+  Add:
+    - -Wno-unknown-warning-option
+    - -Wno-unknown-attributes
+
+Diagnostics:
+  Suppress:
+    - drv_unknown_argument
+    - drv_unsupported_opt
+    - unknown_attributes
+
+---
+# compile_commands.json from `pio run -t compiledb` names the compiler without a path,
+# so point clangd at the PlatformIO toolchain (needed for system headers like stdio.h).
+# Update the version in these paths if PlatformIO upgrades the toolchain.
+If:
+  PathMatch: .*\.(c|h)$
+CompileFlags:
+  Compiler: C:/Users/Zalupenko/.platformio/packages/toolchain-xtensa-esp-elf@14.2.0+20251107/bin/xtensa-esp32s3-elf-gcc.exe
+
+---
+If:
+  PathMatch: .*\.(cc|cpp|cxx|hpp|hh)$
+CompileFlags:
+  Compiler: C:/Users/Zalupenko/.platformio/packages/toolchain-xtensa-esp-elf@14.2.0+20251107/bin/xtensa-esp32s3-elf-g++.exe

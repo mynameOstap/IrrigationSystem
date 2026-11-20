@@ -1,0 +1,21 @@
+# PlatformIO build output
+.pio/
+
+# ESP-IDF build output and caches
+build/
+managed_components/
+.cache/
+compile_commands.json
+sdkconfig.old
+sdkconfig.*
+!sdkconfig.defaults
+
+# VS Code generated files
+.vscode/
+
+# Editor and OS files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
