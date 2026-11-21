@@ -1,5 +1,4 @@
 #pragma once
-
 #include "esp_adc/adc_oneshot.h"
 
 struct moisture_sensor_config {
@@ -9,4 +8,4 @@ struct moisture_sensor_config {
 
 void config_all_adc_moisture(void);
 
-int moisture_check(int i);
+uint64_t moisture_check(int i);

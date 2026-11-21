@@ -20,5 +20,5 @@ typedef struct {
     int64_t      last_check_ms;
     int64_t      cooldown_until_ms;
     uint8_t      pulses;
-    uint64_t      moisture_before;
+    uint64_t     moisture_before;
 } zone_ctx_t;

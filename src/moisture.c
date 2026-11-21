@@ -49,7 +49,7 @@ void config_all_adc_moisture(void)
    
 }
 
-int moisture_check(int i)
+uint64_t moisture_check(int i)
 {
     
     // int moisture_percent = to_pct(moisture_avg);
